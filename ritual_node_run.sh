@@ -109,7 +109,7 @@ rm -f forge
 EOF
 
     echo "Installing Forge dependencies..."
-    cd infernet-container-starter/projects/hello-world/contracts
+    cd ~/infernet-container-starter/projects/hello-world/contracts
     forge install --no-commit foundry-rs/forge-std
     forge install --no-commit ritual-net/infernet-sdk
     cd ../../../
