@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Function to handle Off-chain option
-off_chain() {
-     echo "Running Off-chain tasks..."
+
+run_the_node(){
+ echo "Running Off-chain tasks..."
     sudo apt-get update -y
     sudo apt-get upgrade -y
     sudo apt-get install -y jq    
@@ -40,7 +41,7 @@ off_chain() {
     pip3 install infernet-cli
     
     echo "Cloning Infernet Container Starter repository..."
-    git clone --recurse-submodules https://github.com/ritual-net/infernet-container-starter ~/infernet-container-starter
+    git clone --recurse-submodules https://github.com/ritual-net/infernet-container-starter
 
     echo "Navigating to infernet-container-starter directory..."
     cd infernet-container-starter
@@ -50,6 +51,10 @@ off_chain() {
 
     echo "Starting a screen session for deployment..."
     screen -S infernet-deploy -dm bash -c "make deploy-container project=hello-world"
+
+}
+off_chain() {
+   
 
     echo "Response from POST request: $POST_RESPONSE"
 
@@ -145,28 +150,32 @@ payment() {
 # Menu for user selection
 while true; do
     echo "Select an option:"
-    echo "1. Offchain"
-    echo "2. Onchain"
-    echo "3. Payment"
-    echo "4. Node Run Check"
-    echo "5. Exit"
+    echo "1. Run The Node"
+    echo "2. Offchain"
+    echo "3. Onchain"
+    echo "4. Payment"
+    echo "5. Node Run Check"
+    echo "6. Exit"
 
-    read -p "Enter your choice [1-5]: " choice
+    read -p "Enter your choice [1-6]: " choice
 
     case $choice in
         1)
-            off_chain
+            run_the_node
             ;;
         2)
-            on_chain
+            off_chain
             ;;
         3)
+            on_chain
+            ;;
+        4)
             payment
             ;;
-	4)
+	    5)
             node_check
             ;;
-        5)
+        6)
             echo "Exiting..."
             exit 0
             ;;
