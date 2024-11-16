@@ -78,6 +78,9 @@ EOF
     echo "Starting a screen session for deployment..."
     screen -S infernet-deploy -dm bash -c "make deploy-container project=hello-world"
 
+    # Add a 15-second delay
+    sleep 15
+
 }
 off_chain() {
    
