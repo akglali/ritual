@@ -26,22 +26,23 @@ I have used https://docs.ritual.net/infernet/node/introduction to code my script
 When you run the script, you will see the following menu:
  
     Select an option:
-    1. Off-chain
-    2. On-chain
-    3. Payment
-    4. Node Check
-    5. Exit 
+    1. Run The Node
+    2. Offchain
+    3. Onchain
+    4. Payment
+    5. Node Run Check
+    6. Exit
 
 
-# 1-) Offchain
-If you run the offchain option more than once please make sure you accept override option that will show.
+# 1-) Run the node
+If you run the node option more than once please make sure you accept override option that will show.
 
     
     Adding Docker GPG key and repository...
     File '/usr/share/keyrings/docker-archive-keyring.gpg' exists. Overwrite? (y/N) y
 
 
-# 2-) Onchain
+# 3-) Onchain
 
 It is important to open a new terminal and watch logs by:
 
