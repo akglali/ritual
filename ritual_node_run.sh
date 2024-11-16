@@ -49,6 +49,32 @@ run_the_node(){
     echo "Pulling Docker image..."
     docker pull ritualnetwork/hello-world-infernet:latest
 
+
+    echo "Installing Snap..."
+    sudo apt install -y snap
+
+    echo "Installing Foundry..."
+    curl -L https://foundry.paradigm.xyz | bash
+
+    echo "Setting up Foundry..."
+    foundryup
+    export PATH="$HOME/.foundry/bin:$PATH"
+    source ~/.bashrc
+    
+
+    echo "Switching to root user..."
+    sudo bash -i <<EOF
+cd /bin/
+echo "Removing existing forge binary..."
+rm -f forge
+EOF
+
+    echo "Installing Forge dependencies..."
+    cd ~/infernet-container-starter/projects/hello-world/contracts
+    forge install --no-commit foundry-rs/forge-std
+    forge install --no-commit ritual-net/infernet-sdk
+    cd ../../../
+
     echo "Starting a screen session for deployment..."
     screen -S infernet-deploy -dm bash -c "make deploy-container project=hello-world"
 
@@ -89,30 +115,7 @@ off_chain() {
 on_chain() {
     echo "Running On-chain tasks..."
 
-    echo "Installing Snap..."
-    sudo apt install -y snap
-
-    echo "Installing Foundry..."
-    curl -L https://foundry.paradigm.xyz | bash
-
-    echo "Setting up Foundry..."
-    foundryup
-    export PATH="$HOME/.foundry/bin:$PATH"
-    source ~/.bashrc
-    
-
-    echo "Switching to root user..."
-    sudo bash -i <<EOF
-cd /bin/
-echo "Removing existing forge binary..."
-rm -f forge
-EOF
-
-    echo "Installing Forge dependencies..."
-    cd ~/infernet-container-starter/projects/hello-world/contracts
-    forge install --no-commit foundry-rs/forge-std
-    forge install --no-commit ritual-net/infernet-sdk
-    cd ../../../
+  
    
     echo "*******************************"
     echo "Deploying contracts for project hello-world..."
