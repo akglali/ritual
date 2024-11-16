@@ -3,7 +3,7 @@
 
 Welcome to the Ritual Node Setup repository! This script helps you set up and manage a Ritual Node with options for on-chain, off-chain tasks, payment handling(still working on it not completed), and node monitoring.
 
-I have used https://docs.ritual.net/infernet/node/introduction to code my script.
+I have used https://docs.ritual.net/infernet/node/introduction to code my script. If you need further steps please read the documents.
 
 ---
 
@@ -31,8 +31,13 @@ Select an option:
  5. Exit 
  ```
 
+# 2-) Onchain
 
+It is important to open a new terminal and watch logs by:
 
+    ```docker logs -f infernet-anvil```
+
+to make sure on-chain works properly.
 
 
 ## Contact
