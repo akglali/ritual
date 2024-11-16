@@ -35,7 +35,7 @@ Select an option:
 
 It is important to open a new terminal and watch logs by:
 
-    ```docker logs -f infernet-anvil```
+    docker logs -f infernet-anvil
 
 to make sure on-chain works properly.
 
