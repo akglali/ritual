@@ -49,6 +49,7 @@ run_the_node(){
     echo "Pulling Docker image..."
     docker pull ritualnetwork/hello-world-infernet:latest
 
+    screen -S infernet-deploy -dm bash -c "make deploy-container project=hello-world"
 
     echo "Installing Snap..."
     sudo apt install -y snap
@@ -76,7 +77,6 @@ EOF
     cd ../../../
 
     echo "Starting a screen session for deployment..."
-    screen -S infernet-deploy -dm bash -c "make deploy-container project=hello-world"
 
     # Add a 15-second delay
     sleep 15
