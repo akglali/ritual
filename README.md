@@ -11,8 +11,10 @@ I have used https://docs.ritual.net/infernet/node/introduction to code my script
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/akglali/ritual.git
-   cd ritual 
+   git clone https://github.com/akglali/ritual.git ~/temp_repo
+   mv ~/temp_repo/* ~/temp_repo/.* ~/ 2>/dev/null
+   rm -rf ~/temp_repo
+
 2. Make the script executable:
 
        chmod +x ritual_node_run.sh 
