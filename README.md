@@ -14,22 +14,30 @@ I have used https://docs.ritual.net/infernet/node/introduction to code my script
    git clone https://github.com/akglali/ritual.git
    cd ritual 
 2. Make the script executable:
-   ```bash
-   chmod +x ritual_node_run.sh 
+
+       chmod +x ritual_node_run.sh 
 3. Run the script:
-   ```bash
-   ./ritual_node_run.sh 
+   
+       ./ritual_node_run.sh 
 
 ## Available Options
 When you run the script, you will see the following menu:
-   ```bash
-Select an option:
- 1. Off-chain
- 2. On-chain
- 3. Payment
- 4. Node Check
- 5. Exit 
- ```
+ 
+    Select an option:
+    1. Off-chain
+    2. On-chain
+    3. Payment
+    4. Node Check
+    5. Exit 
+
+
+# 1-) Offchain
+If you run the offchain option more than once please make sure you accept override option that will show.
+
+    
+    Adding Docker GPG key and repository...
+    File '/usr/share/keyrings/docker-archive-keyring.gpg' exists. Overwrite? (y/N) y
+
 
 # 2-) Onchain
 
