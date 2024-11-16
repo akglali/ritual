@@ -49,7 +49,6 @@ run_the_node(){
     echo "Pulling Docker image..."
     docker pull ritualnetwork/hello-world-infernet:latest
 
-    screen -S infernet-deploy -dm bash -c "make deploy-container project=hello-world"
 
     echo "Installing Snap..."
     sudo apt install -y snap
@@ -58,10 +57,10 @@ run_the_node(){
     curl -L https://foundry.paradigm.xyz | bash
 
     echo "Setting up Foundry..."
-    foundryup
+    # Ensure Foundry is in PATH and execute foundryup
     export PATH="$HOME/.foundry/bin:$PATH"
     source ~/.bashrc
-    
+    foundryup || { echo "Error: foundryup command not found. Check your Foundry installation."; exit 1; }
 
     echo "Switching to root user..."
     sudo bash -i <<EOF
@@ -71,17 +70,19 @@ rm -f forge
 EOF
 
     echo "Installing Forge dependencies..."
-    cd ~/infernet-container-starter/projects/hello-world/contracts
-    forge install --no-commit foundry-rs/forge-std
-    forge install --no-commit ritual-net/infernet-sdk
+    # Ensure you're in the correct directory
+    cd ~/infernet-container-starter/projects/hello-world/contracts || { echo "Error: Directory not found."; exit 1; }
+    forge install --no-commit foundry-rs/forge-std || { echo "Error: Forge command failed."; exit 1; }
+    forge install --no-commit ritual-net/infernet-sdk || { echo "Error: Forge command failed."; exit 1; }
     cd ../../../
 
     echo "Starting a screen session for deployment..."
+    screen -S infernet-deploy -dm bash -c "make deploy-container project=hello-world"
 
     # Add a 15-second delay
     sleep 15
-
 }
+
 off_chain() {
    
 
