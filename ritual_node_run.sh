@@ -40,7 +40,7 @@ off_chain() {
     pip3 install infernet-cli
     
     echo "Cloning Infernet Container Starter repository..."
-    git clone --recurse-submodules https://github.com/ritual-net/infernet-container-starter
+    git clone --recurse-submodules https://github.com/ritual-net/infernet-container-starter ~/infernet-container-starter
 
     echo "Navigating to infernet-container-starter directory..."
     cd infernet-container-starter
