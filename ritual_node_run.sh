@@ -58,9 +58,12 @@ run_the_node(){
 
     echo "Setting up Foundry..."
     # Ensure Foundry is in PATH and execute foundryup
-    export PATH="$HOME/.foundry/bin:$PATH"
+    if ! grep -q "export PATH=\$HOME/.foundry/bin:\$PATH" ~/.bashrc; then
+        echo 'export PATH=$HOME/.foundry/bin:$PATH' >> ~/.bashrc
+    fi
     source ~/.bashrc
     foundryup || { echo "Error: foundryup command not found. Check your Foundry installation."; exit 1; }
+
 
     echo "Switching to root user..."
     sudo bash -i <<EOF
