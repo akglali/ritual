@@ -9,7 +9,7 @@ I have used https://docs.ritual.net/infernet/node/introduction to code my script
 
 # Before Installation 
 Everything is made for 
- **Operating System**: Linux (Ubuntu preferred).
+ **Operating System**: Linux (Ubuntu).
 
 ## How to Download and Run
 
