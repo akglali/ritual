@@ -132,6 +132,13 @@ on_chain() {
     else
         echo "Foundry is already installed."
     fi
+    echo "Installing Forge dependencies..."
+    # Ensure you're in the correct directory
+    cd ~/infernet-container-starter/projects/hello-world/contracts || { echo "Error: Directory not found."; exit 1; }
+    forge install --no-commit foundry-rs/forge-std || { echo "Error: Forge command failed."; exit 1; }
+    forge install --no-commit ritual-net/infernet-sdk || { echo "Error: Forge command failed."; exit 1; }
+    cd ../../../
+
    
     echo "*******************************"
     echo "Deploying contracts for project hello-world..."
