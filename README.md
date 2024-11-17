@@ -36,6 +36,9 @@ When you run the script, you will see the following menu:
     4. Payment
     5. Node Run Check
     6. Exit
+## Steps
+  First "Run the Node". Second, you can run the "Off-chain requests". Third you can run the "On-chain subscriptions".
+Payment is still in proccess. 
 
 
 # 1-) Run the node
@@ -53,6 +56,8 @@ It is important to open a new terminal and watch logs by:
     docker logs -f infernet-anvil
 
 to make sure on-chain works properly.
+
+For the output please check the original documentation https://docs.ritual.net/infernet/node/quickstart/onchain .
 
 
 ## Contact
