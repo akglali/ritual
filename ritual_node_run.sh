@@ -122,12 +122,16 @@ off_chain() {
 on_chain() {
     echo "Running On-chain tasks..."
 
-    echo "Installing Forge dependencies..."
-    # Ensure you're in the correct directory
-    cd ~/infernet-container-starter/projects/hello-world/contracts || { echo "Error: Directory not found."; exit 1; }
-    forge install --no-commit foundry-rs/forge-std || { echo "Error: Forge command failed."; exit 1; }
-    forge install --no-commit ritual-net/infernet-sdk || { echo "Error: Forge command failed."; exit 1; }
-    cd ../../../
+    echo "Ensuring Foundry is installed and in PATH..."
+    # Add Foundry to PATH if not already done
+    if ! command -v forge &> /dev/null; then
+        echo "Foundry is not in PATH. Adding it now..."
+        export PATH="$HOME/.foundry/bin:$PATH"
+        source ~/.bashrc
+        foundryup || { echo "Error: foundryup command not found. Check your Foundry installation."; exit 1; }
+    else
+        echo "Foundry is already installed."
+    fi
    
     echo "*******************************"
     echo "Deploying contracts for project hello-world..."
