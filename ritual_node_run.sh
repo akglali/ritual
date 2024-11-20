@@ -176,7 +176,7 @@ deploy_sol_modify(){
 
 # Define the old and new registry addresses
     OLD_REGISTRY="0x663F3ad617193148711d28f5334eE4Ed07016602"
-    NEW_REGISTRY="0xe2F36C4E23D67F81fE0B278E80ee85Cf0ccA3c8d"
+    NEW_REGISTRY="0x3B1554f346DFe5c482Bb4BA31b880c1C18412170"
 
 # Replace the old registry address with the new one
     sed -i "s/$OLD_REGISTRY/$NEW_REGISTRY/" "$DEPLOY_FILE"
