@@ -60,6 +60,9 @@ Now go back to other terminal
     
     cd infernet-container-starter/
 
+# Important
+### In your wallet (Base Mainnet) should be at least $15.
+
 Now you are ready to deploy your contract
 
     project=hello-world make deploy-contracts
