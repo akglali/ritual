@@ -207,7 +207,7 @@ hello_world_container_config(){
     # Modify the JSON file
     jq --arg private_key "$private_key" \
        --arg rpc_url "https://mainnet.base.org/" \
-       --arg registry_address "0xe2F36C4E23D67F81fE0B278E80ee85Cf0ccA3c8d" \
+       --arg registry_address "0x3B1554f346DFe5c482Bb4BA31b880c1C18412170" \
     '
     # Add snapshot_sync object outside chain
     .snapshot_sync = {
@@ -263,7 +263,7 @@ deploy_modify_config() {
     # Modify the JSON file
     jq --arg private_key "$private_key" \
        --arg rpc_url "https://mainnet.base.org/" \
-       --arg registry_address "0xe2F36C4E23D67F81fE0B278E80ee85Cf0ccA3c8d" \
+       --arg registry_address "0x3B1554f346DFe5c482Bb4BA31b880c1C18412170" \
     '
     # Add snapshot_sync object outside chain
     .snapshot_sync = {
