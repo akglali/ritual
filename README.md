@@ -31,33 +31,51 @@ When you run the script, you will see the following menu:
  
     Select an option:
     1. Run The Node
-    2. Offchain
-    3. Onchain
-    4. Payment
-    5. Node Run Check
-    6. Exit
+    2. Configure Foundry
+    3. Exit
+
 ## Steps
-  First "Run the Node". Second, you can run the "Off-chain requests". Third you can run the "On-chain subscriptions".
-Payment is still in proccess. 
+  ### First "1- Run the Node".
+When you run the node it will ask you 3 times  your private key please make sure you enter without any space to make the changes on neccessary files.
+  
+  
+   ### Second, Run the "Configure Foundry". Then exit. 
 
-
-# 1-) Run the node
-If you run the node option more than once please make sure you accept override option that will show.
-
+  Now We need to install forge for that please follow the steps.
     
-    Adding Docker GPG key and repository...
-    File '/usr/share/keyrings/docker-archive-keyring.gpg' exists. Overwrite? (y/N) y
+    cd
+    mkdir foundry
+    cd foundry
+    curl -L https://foundry.paradigm.xyz | bash
+    source ~/.bashrc
+    foundryup
+    cd ~/
+
+  Then open a new terminal run:
+      
+      docker compose -f infernet-container-starter/deploy/docker-compose.yaml down
+      docker compose -f infernet-container-starter/deploy/docker-compose.yaml up
+
+Now go back to other terminal
+    
+    cd infernet-container-starter/
+
+Now you are ready to deploy your contract
+
+    project=hello-world make deploy-contracts
+
+Once you done it successfully please follow the https://ritual.academy/nodes/setup/
+11 step.      
 
 
-# 3-) Onchain
-
+# Notes
 It is important to open a new terminal and watch logs by:
 
     docker logs -f infernet-anvil
 
 to make sure on-chain works properly.
 
-For the output please check the original documentation https://docs.ritual.net/infernet/node/quickstart/onchain .
+For the output please check the original documentation https://ritual.academy/nodes/setup/ .
 
 
 ## Contact
