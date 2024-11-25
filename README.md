@@ -68,7 +68,7 @@ Now you are ready to deploy your contract
 
 When you successfully deploy the contract you will see.
 
-![alt text](http://url/to/img.png](https://github.com/akglali/ritual/blob/main/deploy_contract.png)
+![alt text](deploy_contract.png)
 
 
 
