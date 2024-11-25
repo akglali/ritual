@@ -3,7 +3,7 @@
 
 Welcome to the Ritual Node Setup repository! This script helps you set up and manage a Ritual Node with options for on-chain, off-chain tasks, payment handling(still working on it not completed), and node monitoring.
 
-I have used https://docs.ritual.net/infernet/node/introduction to code my script. If you need further steps please read the documents.
+I have used https://ritual.academy/nodes/setup/ to code my script. If you need further steps please read the documents.
 
 ---
 
@@ -60,17 +60,30 @@ Now go back to other terminal
     
     cd infernet-container-starter/
 
-# Important
-### In your wallet (Base Mainnet) should be at least $15.
+# Important In your wallet (Base Mainnet) should be at least $15.
 
 Now you are ready to deploy your contract
 
     project=hello-world make deploy-contracts
 
-Once you done it successfully please follow the https://ritual.academy/nodes/setup/
-11 step.      
+When you successfully deploy the contract you will see.
+
+![alt text]([http://url/to/img.png](https://github.com/akglali/ritual/blob/main/deploy_contract.png))
 
 
+
+Edit your CallContract.s.sol file by inserting the new contract address. The preconfigured address is SaysGM saysGm = SaysGM(0x13D69Cf7d6CE4218F646B759Dcf334D82c023d8e), change it to the address that was generated when calling SaysGM:
+
+    nano ~/infernet-container-starter/projects/hello-world/contracts/script/CallContract.s.sol
+
+
+
+The last thing we are going to do is calling the contract  
+
+    project=hello-world make call-contract
+
+
+# We are all set. Congratulations! 
 # Notes
 It is important to open a new terminal and watch logs by:
 
