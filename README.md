@@ -9,7 +9,7 @@ I have used https://ritual.academy/nodes/setup/ to code my script. If you need f
 
 # Before Installation 
 Everything is made for 
- **Operating System**: Linux (Ubuntu).
+ **Operating System**: Linux (Ubuntu 22.04).
 
 ## How to Download and Run
 
